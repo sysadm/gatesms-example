@@ -1,0 +1,17 @@
+development:
+  gatesms:
+    send_url: "http://www.gatesms.eu/sms_xmlapi.php"
+    KeyId: "email_klienta_gatesms@example.com"
+    SecretKey: "xg05652ec1-example"
+    test: false
+    pl: false
+    flash: false
+
+production:
+  gatesms:
+    send_url: "http://www.gatesms.eu/sms_xmlapi.php"
+    KeyId: "email_klienta_gatesms@example.com"
+    SecretKey: "xg05652ec1-example"
+    test: false
+    pl: false
+    flash: false

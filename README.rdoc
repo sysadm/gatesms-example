@@ -1,0 +1,21 @@
+Przykład aplikacji we frameworku Ruby on Rails (3.2.3) z wykorzystaniem bramki gatesms.eu
+Użyty został rvm jako manager wersji Ruby.
+Najpierw jak zwykle odpalamy
+$ bundler
+$ rake db:create
+$ rake db:migrate
+(w przykładzie została zdefiniowana baza w postgresql, ale można użyć dowolnej, zmieniamy tylko config/database.yml pod swoje potrzeby)
+w pliku config/config.yml wystarczy wskazać dane klienta
+$ rails s thin
+
+i odwołujemy się do http://localhost:3000
+Jeżeli posiadamy własną domenę pod która próbujemy uruchomić aplikację to odpalamy w trybie produkcyjnym i odwołujemy się do
+http://wlasna_domena.com
+W tym przypadku można również zdefiniować w panelu klienta gatesms.eu "Adres raportu" jako http://wlasna_domena.com/sms/update_status
+wtedy nie trzeba będzie odpytywać bramki o statusie SMSa, tylko zmiany będą wprowadzone automatycznie.
+
+To tylko przykładowa aplikacja do rozbudowania pod własne potrzeby.
+
+Pozdrawiam,
+Jerzy Sładkowski
+jerzy.sladkowski@gmail.com

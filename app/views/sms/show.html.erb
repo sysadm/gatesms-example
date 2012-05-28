@@ -1,0 +1,46 @@
+<%- model_class = @sms.class -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:phone) %>:</strong></dt>
+  <dd><%= @sms.phone %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:subject) %>:</strong></dt>
+  <dd><%= @sms.subject %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:content) %>:</strong></dt>
+  <dd><%= @sms.content %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:isflash) %>:</strong></dt>
+  <dd><%= @sms.isflash %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:pl) %>:</strong></dt>
+  <dd><%= @sms.pl %></dd>
+  <% if @sms.globalid %><dt><strong><%= model_class.human_attribute_name(:globalid) %>:</strong></dt>
+  <dd><%= @sms.globalid %></dd><% end %>
+  <dt><strong><%= model_class.human_attribute_name(:localid) %>:</strong></dt>
+  <dd><%= @sms.localid %></dd>
+  <% if @sms.status_id %>
+  <dt><strong><%= model_class.human_attribute_name(:status_id) %>:</strong></dt>
+  <dd><%= @sms.status_id %>: <%= @sms.status %></dd><% end %>
+  <dt><strong><%= model_class.human_attribute_name(:ok) %>:</strong></dt>
+  <dd><%= @sms.ok %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sent) %>:</strong></dt>
+  <dd><%= @sms.sent %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              root_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_sms_path(@sms), :class => 'btn' %>
+  <% unless @sms.sent? %><%= link_to t('.send', :default => t("helpers.links.send")),
+              send_message_path(@sms), :class => 'btn btn-warning' %>
+  <% else %>
+      <%= link_to t('.request_status', :default => t("helpers.links.request_status")),
+                    request_status_path(@sms), :class => 'btn btn-primary' %>
+  <% end %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              sms_path(@sms),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>
